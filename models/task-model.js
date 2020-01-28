@@ -10,7 +10,7 @@ const schema = require('./task-schema.js');
 class Task extends Model {
   constructor() {
 
-    super(schema)
+    super(schema);
 
   }
 }

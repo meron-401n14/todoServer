@@ -1,4 +1,4 @@
-'use strict' 
+'use strict' ;
 
 const mongoose = require('mongoose');
 
@@ -8,10 +8,9 @@ const tasks = new mongoose.Schema({
   description: {type:String},
   dateDue: {type:Date},
   priority: {type: Number, required: true, default: 5},
-  isCompleted: { type: Boolean, required: true, 
-  default: false }, 
+  isCompleted: { type: Boolean, required: true, default: false }, 
 
-})
+});
 
 
 

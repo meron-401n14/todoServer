@@ -2,7 +2,7 @@
 
 
 require('dotenv').config();
-console.log('here')
+console.log('here');
 
 
-require('./server.js').start();
+require('./server.js').start(process.env.PORT);

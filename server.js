@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 
 const express = require('express');
@@ -7,7 +7,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const authRouter = require('./routes/auth-router.js');
-const taskRouter = require ('./routes/task-router.js');
+const taskRouter = require('./routes/task.router.js');
+const errorHandler = require('./middleware/error.js');
 
 
 
@@ -49,17 +50,17 @@ module.exports = {
       console.log(`Server Up on ${PORT}`);
 
     });
-      // connect to our DB 
-   const uri = process.env.MONGODB_URI
+    // connect to our DB 
+    const uri = process.env.MONGODB_URI;
      
-      const options = {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useUnifiedTopology: true,
-      };
+    const options = {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+    };
   
-      mongoose.connect(uri, options);
-    },
+    mongoose.connect(uri, options);
+  },
 
 
 

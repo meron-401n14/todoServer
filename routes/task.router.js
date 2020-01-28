@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const express = require('express');
 
@@ -16,10 +16,10 @@ const users = new Users();
 router.get ('/all-tasks', auth,  async(req, res, next) => {
 
   let taskList = [];
-  for(let i = 0; i < req.user.tasks.length; i++);
-      taskList.push(await tasks.read(req.user.tasks[i]));
+  for(let i = 0; i < req.user.tasks.length; i++)
+    taskList.push(await tasks.read(req.user.tasks[i]));
 
-      res.send({ tasks: taskList});
+  res.send({ tasks: taskList});
 
 });
 
@@ -45,36 +45,36 @@ router.post('/add-task', auth, async (req, res, next)=>{
 
 
 router.patch('/update-task/:t_id', auth, async ( req, res, next)=>{
-    // let's update the task 
+  // let's update the task 
 
-    await tasks.update(req.params.t_id, req.body);
-    let task = await tasks.read(req.params.t_id);
+  await tasks.update(req.params.t_id, req.body);
+  let task = await tasks.read(req.params.t_id);
 
-    res.send({ task: task});
+  res.send({ task: task});
 
 });
 
 
 router.delete('/delete-task/:t_id', auth, async(req, res, next)=>{
-   let taskArr = req.user.tasks.filter(val => {
-     return val.toString() !== req.params.t_id;
-   });
+  let taskArr = req.user.tasks.filter(val => {
+    return val.toString() !== req.params.t_id;
+  });
 
 
-   await tasks.delete(req.params.t_id);
-   await users.update(req.user._id, {tasks: taskArr});
+  await tasks.delete(req.params.t_id);
+  await users.update(req.user._id, {tasks: taskArr});
 
 
-   let user = await users.read(req.user._id);
+  let user = await users.read(req.user._id);
 
-   res.send({ user: user});
+  res.send({ user: user});
 });
 
 
 router.patch('/mark-done/:t_id', auth, async (req, res, next)=>{
-    await tasks.update(req.params.t_id, { isCompleted: true});
-    let task = await tasks.read(req.params.t_id);
-    res.send({ task: task});
+  await tasks.update(req.params.t_id, { isCompleted: true});
+  let task = await tasks.read(req.params.t_id);
+  res.send({ task: task});
 } );
 
 

@@ -8,7 +8,7 @@ const schema = require('./user-schema.js')
 class Users extends Model {
   constructor() {
 
-    super(schema)
+    super(schema);
 
   }
 }
