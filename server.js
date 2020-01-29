@@ -45,7 +45,7 @@ module.exports = {
   server: server,
   start: port =>  {
 
-    const PORT = port || process.env.PORT  || 8080;
+    const PORT = port || process.env.PORT;
     server.listen(PORT, () => {
       console.log(`Server Up on ${PORT}`);
 
