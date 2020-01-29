@@ -45,21 +45,21 @@ module.exports = {
   server: server,
   start: port =>  {
 
-    const PORT = port || process.env.PORT  || 3000;
+    const PORT = port || process.env.PORT  || 4000;
     server.listen(PORT, () => {
       console.log(`Server Up on ${PORT}`);
 
     });
     // connect to our DB 
-    const uri = process.env.MONGODB_URI;
-     
+    
     const options = {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
     };
-  
-    mongoose.connect(uri, options);
+    
+    const path = process.env.MONGODB_URI;
+    mongoose.connect(path, options);
   },
 
 
