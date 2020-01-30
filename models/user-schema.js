@@ -24,7 +24,7 @@ users.methods.comparePassword = async function(password){
 };
 
 
-users.methods.genrateToken = function(timeout) {
+users.methods.generateToken = function(timeout) {
   let expiry = timeout 
     ? Math.floor(Date.now() / 1000) + parseInt(timeout)
     : Math.floor(Date.now()/ 1000) + 60 * 60;
