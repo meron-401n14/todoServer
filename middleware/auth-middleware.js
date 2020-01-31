@@ -69,4 +69,6 @@ module.exports = async (req, res, next) => {
     req.token = 'Bearer '+ user.generateToken(req.headers.timeout);
     next();
   }
+
+  
 };
