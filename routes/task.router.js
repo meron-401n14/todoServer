@@ -6,6 +6,7 @@ const router = express.Router();
 const auth = require('../middleware/auth-middleware.js');
 const Task = require('../models/task-model.js');
 const Users = require('../models/user-model.js');
+
 const tasks = new Task();
 const users = new Users();
 
@@ -21,6 +22,12 @@ router.get ('/all-tasks', auth,  async(req, res, next) => {
 
   res.send({ tasks: taskList});
 
+});
+
+router.get('/priority/:level', auth, async(req, res, next)=>{
+  let filteredTasks = [];
+  if(tasks.auth.includes(req.task.priority))
+    filteredTasks.push({name:tasks.name, description:tasks.description, dateDue:tasks.dateDue,  priority:tasks. priority});
 });
 
 router.post('/add-task', auth, async (req, res, next)=>{
